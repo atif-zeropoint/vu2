@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<script src="https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.js"></script>
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="root">
+    <h1 v-text="new Date()"></h1>
+
+    <h2>
+        {{ reversedMessage }}
+    </h2>
+
+    <ul>
+        <h3>All Tasks</h3>
+        <li v-for="task in tasks" v-text="task.description"></li>
+    </ul>
+
+    <ul>
+        <h3>Incompleted Tasks</h3>
+        <li v-for="task in incompletedTasks"  v-text="task.description"></li>
+    </ul>
+
+
+</div>
+
+</body>
+
+<script>
+    var app = new Vue({
+        el: '#root',
+        data: {
+            message: 'Hello world!',
+            tasks: [
+                {description: 'Working on laravel 5.8', completed: true},
+                {description: 'Working on Vue.js', completed: true},
+                {description: 'Working on Node.js', completed: false},
+                {description: 'Working on Regex', completed: false},
+                {description: 'Working on Laracon 2019', completed: false},
+                {description: 'Working on ES', completed: false},
+            ]
+        },
+        computed: {
+            reversedMessage() {
+                return this.message.split('').reverse('').join('');
+            },
+
+            incompletedTasks() {
+                return this.tasks.filter(task => ! task.completed);
+            }
+        }
+    });
+
+</script>
+
+</html>
