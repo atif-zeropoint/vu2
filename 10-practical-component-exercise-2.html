@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<script src="https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.js"></script>
+<head>
+
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.css" type="text/css"></link>
+
+</head>
+<body>
+<div id="root">
+    <modal v-if="showModal" @close="showModal = false">
+        <p>
+            Lorem ipsum dolor sit amet
+        </p>
+    </modal>
+    <button type="button" @click="showModal = true">Show modal</button>
+</div>
+
+</body>
+
+<script src="main.js"></script>
+
+</html>
