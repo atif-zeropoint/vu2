@@ -1,3 +1,5 @@
+window.Event = new Vue();
+
 Vue.component('task-list', {
     template: '<div><task v-for="task in tasks" v-text="task.description"></task></div>',
 
@@ -115,12 +117,13 @@ Vue.component('tab', {
 
 })
 
+
 Vue.component('coupon', {
     template: '<input type="text" placeholder="Enter your coupon code" @blur="onCouponApplied">',
 
     methods: {
         onCouponApplied() {
-            this.$emit('applied');
+            Event.$emit('applied');
         }
     }
 
@@ -134,11 +137,15 @@ var app = new Vue({
         isCouponApplied: false,
     },
 
-    methods: {
-        onCouponApplied() {
-            this.isCouponApplied = true;
-        }
-    }
+    created() {
+        Event.$on('applied', () => alert('Handling it'));
+    },
+
+    // methods: {
+    //     onCouponApplied() {
+    //         this.isCouponApplied = true;
+    //     }
+    // }
 });
 
 
