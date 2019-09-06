@@ -151,7 +151,13 @@ Vue.component('coupon', {
     }
 
 
-})
+});
+
+Vue.component('progress-view', {
+    data(){
+        return { percentageCompleted: 0,}
+    }
+});
 
 var app = new Vue({
     el: '#root',
